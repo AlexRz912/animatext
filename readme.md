@@ -16,4 +16,4 @@
 I'm now trying to put "Learn In Public" in practice, which I've heard for the first time on codewars :
 https://www.codewars.com/post/learn-in-public-the-community-based-learning-strategy-that-improves-programming-skills
 
-The only thoughts I have given to this animation template: make it work with architecture as clean as you can.
+The only thoughts I have given to this animation template: make it work with architecture as clean as I can.
