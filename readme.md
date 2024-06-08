@@ -1,14 +1,15 @@
-## This is the second step to my animation template
+## This is the third step to my animation template
 
-- It is the follow up to this: https://github.com/AlexRz912/dynamic_letter_kata
-
+- It is the follow up to this: https://github.com/AlexRz912/dynamic_letter_code_kata_v2
 - I'm looking for feedback, if you wish to do a code review, be my guest, I need to learn on performance optimisation and clean architecture.
 
 ## Code kata Instruction
 
-- Make letters come one by one to the screen with random character apparition prior to the character that is actually part of the text. It's an animation you often see in movies, which you can easily do using After Effects, but this time, no video format.
+- Display letters one by one on the screen, with random characters appearing briefly before the actual characters of the text. It's an animation often seen in movies and can be easily done using After Effects, but this time, without using a video format.
 
-- Clone my repository and launch a server to see what happens in index.html
+- Optional: Generate multiple texts dynamically, regardless of the number of texts. After generating each text, wait approximately 1 second to allow for reading before deleting the text and generating the next one.
+
+- Clone the repository and launch a server to see what happens in index.html
 
 ## why is it public
 
