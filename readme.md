@@ -2,6 +2,7 @@
 
 - It is the follow up to this: https://github.com/AlexRz912/dynamic_letter_code_kata_v2
 - I'm looking for feedback, if you wish to do a code review, be my guest, I need to learn on performance optimisation and clean architecture.
+- It's also a code kata i've created, instructions below.
 
 ## Code kata Instruction
 
