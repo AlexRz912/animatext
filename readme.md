@@ -2,6 +2,7 @@
 
 - It is the follow up to this: https://github.com/AlexRz912/dynamic_letter_code_kata_v2
 - I'm looking for feedback, if you wish to do a code review, be my guest, I need to learn on performance optimisation and clean architecture.
+- It's also a code kata i've created, instructions below.
 
 ## Code kata Instruction
 
@@ -21,4 +22,4 @@ A friend of mine known as "Jeep" just started learning the piano, so I had some 
 I'm now trying to put "Learn In Public" in practice, which I've heard for the first time on codewars :
 https://www.codewars.com/post/learn-in-public-the-community-based-learning-strategy-that-improves-programming-skills
 
-The only thoughts I have given to this animation template: make it work with architecture as clean as you can.
+The only thoughts I have given to this animation template: make it work with architecture as clean as I can.
