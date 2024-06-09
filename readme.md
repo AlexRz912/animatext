@@ -11,6 +11,11 @@
 
 - Clone the repository and launch a server to see what happens in index.html
 
+## Fun fact
+
+I needed some filler words to illustrate the use of the animation.
+A friend of mine known as "Jeep" just started learning the piano, so I had some fun and asked ChatGPT to write a poem about his poor piano skills, with a theme of "rolling over the piano." Jeep loved the poem!
+
 ## why is it public
 
 I'm now trying to put "Learn In Public" in practice, which I've heard for the first time on codewars :
