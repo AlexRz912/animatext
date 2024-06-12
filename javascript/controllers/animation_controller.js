@@ -18,7 +18,7 @@ class AnimationController {
   }
 
   // Créer une fonction qui appelle textLoop en envoyant le texte
-  animationsLoop = () => {
+  animationsLoop = async () => {
     if (this.animationCount === this.texts.length) return;
 
     this.textController = new TextController(this.texts[this.animationCount], this.domElement)
