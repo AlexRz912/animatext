@@ -2,35 +2,34 @@ import Text from "../models/text_model.js"
 import CharController from "./char_controller.js";
 
 class TextController {
-  constructor(text, domElem) {
+    constructor(text, domElem) {
 
-    this.domElement = domElem
-    this.charController = null
-    this.charCount = 0
-    this.text = new Text(text);  //Créer une fonction dans textModel qui calcule le texte déjà rendu et l'envoie à this.renderedText
-    // this.text = text
-    // this.#createTextObjects()
-  }
+        this.domElement = domElem
+        this.text = new Text(text);
+        // this.text = text
+        // this.#createTextObjects()
+        this.#initTextController();
+    }
 
-  textLoop = () => {
-      return new Promise((resolve) => {
-          while (this.charCount < this.text.initialText.length) {
-              this.text.setRenderedTextAndNextLetter({ counter: this.charCount });
+    #initTextController() {
+        this.charController = null
+        this.charCount = 0 //Créer une fonction dans textModel qui calcule le texte déjà rendu et l'envoie à this.renderedText
+    }
 
-              this.charController = new CharController(this.domElement);
+    textLoop = async () => {
+        while (this.charCount < this.text.initialText.length) {
+            this.text.setRenderedTextAndNextLetter({ counter: this.charCount });
 
-              this.charController.randomLetterLoop({
-                  renderedText: this.text.renderedText,
-                  nextLetter:   this.text.nextLetter
-              }).then(() => {
-                  /* En cas de succès faire quelque chose ici */
-              });
+            this.charController = new CharController(this.domElement);
 
-              this.charCount++;
-          }
-          resolve(this.charCount);
-      })
-  }
+            await this.charController.randomLetterLoop({
+                renderedText: this.text.renderedText,
+                nextLetter:   this.text.nextLetter
+            });
+
+            this.charCount++;
+        }
+    }
 }
 
 export default TextController

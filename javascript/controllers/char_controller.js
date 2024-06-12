@@ -2,47 +2,47 @@ import RandomChar from "../models/random_char_model.js"
 
 
 class CharController {
-  constructor(domElem) {
+    constructor(domElem) {
 
-    this.domElem = domElem;
-    this.randomChar = null;
-    this.charCount = 0;
-    this.animationEnd = false;
-  }
+        this.domElem = domElem;
+        this.randomChar = null;
+        this.charCount = 0;
+        this.animationEnd = false;
+    }
 
-  randomLetterLoop = ({renderedText, nextLetter}) => { // recursion
-    return new Promise((resolve) => {
+    randomLetterLoop = ({renderedText, nextLetter}) => { // recursion
+        return new Promise(async (resolve) => {
 
-      if (this.animationEnd) return resolve(true);
+            if (this.animationEnd) return resolve(true);
 
-        this.randomChar = new RandomChar();
-        this.animationEnd = this.#intervalForRandomChar({renderedText: renderedText, nextLetter: nextLetter}).then();
+            this.randomChar = new RandomChar();
+            this.animationEnd = await this.#intervalForRandomChar({renderedText: renderedText, nextLetter: nextLetter});
 
-        return resolve(this.randomLetterLoop({renderedText: renderedText, nextLetter: nextLetter}));
-    })
-  }
+            return resolve(this.randomLetterLoop({renderedText: renderedText, nextLetter: nextLetter}));
+        })
+    }
 
-  #intervalForRandomChar = ({renderedText, nextLetter}) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
+    #intervalForRandomChar = ({renderedText, nextLetter}) => {
+        return new Promise((resolve) => {
+            setTimeout(() => {
 
-        if (this.charCount === 3) {
+                if (this.charCount === 3) {
 
-          this.domElem.insertCharToParagraph({renderedText: renderedText, char: nextLetter})
-          this.charCount = 0;
-          resolve(true)
+                    this.domElem.insertCharToParagraph({renderedText: renderedText, char: nextLetter})
+                    this.charCount = 0;
+                    resolve(true)
 
-        } else {
+                } else {
 
-          this.domElem.insertCharToParagraph({renderedText: renderedText, char: this.randomChar.char})
-          this.charCount++
-          resolve(false);
+                    this.domElem.insertCharToParagraph({renderedText: renderedText, char: this.randomChar.char})
+                    this.charCount++
+                    resolve(false);
 
-        }
+                }
 
-      }, 20)
-    })
-  }
+            }, 20)
+        })
+    }
 }
 
 export default CharController
