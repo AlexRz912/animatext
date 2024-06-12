@@ -5,10 +5,15 @@ class CharController {
     constructor(domElem) {
 
         this.domElem =      domElem;
-        this.randomChar =   null;
         this.animationEnd = false;
+        this.#initCharController();
     }
-    charCount =             0;
+
+    #initCharController() {
+      this.randomChar = null;
+      this.charCount =  0;
+    }
+
 
     randomLetterLoop = ({renderedText, nextLetter}) => { // recursion
         return new Promise(async(resolve) => {

@@ -5,15 +5,13 @@ class TextController {
     constructor(text, domElem) {
 
         this.domElement = domElem
-        this.text = new Text(text);
-        // this.text = text
-        // this.#createTextObjects()
+        this.text =       new Text(text);
         this.#initTextController();
     }
 
     #initTextController() {
         this.charController = null
-        this.charCount = 0 //Créer une fonction dans textModel qui calcule le texte déjà rendu et l'envoie à this.renderedText
+        this.charCount =      0
     }
 
     textLoop = async () => {
