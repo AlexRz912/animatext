@@ -4,14 +4,14 @@ import RandomChar from "../models/random_char_model.js"
 class CharController {
     constructor(domElem) {
 
-        this.domElem = domElem;
-        this.randomChar = null;
-        this.charCount = 0;
+        this.domElem =      domElem;
+        this.randomChar =   null;
         this.animationEnd = false;
     }
+    charCount =             0;
 
     randomLetterLoop = ({renderedText, nextLetter}) => { // recursion
-        return new Promise(async (resolve) => {
+        return new Promise(async(resolve) => {
 
             if (this.animationEnd) return resolve(true);
 
