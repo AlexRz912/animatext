@@ -10,16 +10,14 @@ class AnimationController {
     }
 
     // Créer une fonction qui appelle textLoop en envoyant le texte
-    animationsLoop = () => {
-        return new Promise(() => {
-            if (this.animationCount === this.texts.length) return;
+    animationsLoop = async () => {
+        if (this.animationCount === this.texts.length) return;
 
-            this.textController = new TextController(this.texts[this.animationCount], this.domElement)
-            this.textController.textLoop().then()
-            this.#waitTextToBeRead().then()
-            this.animationCount++
-            return this.animationsLoop()
-        })
+        this.textController = new TextController(this.texts[this.animationCount], this.domElement)
+        await this.textController.textLoop()
+        await this.#waitTextToBeRead()
+        this.animationCount++
+        return this.animationsLoop()
     }
 
     #waitTextToBeRead = () => {
