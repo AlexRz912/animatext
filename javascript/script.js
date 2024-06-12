@@ -11,4 +11,4 @@ const animationController = new AnimationController([
   "Rolling over the chords in a clumsy spree",
   "Rolling over the notes, setting chaos free."
 ])
-animationController.animationsLoop()
+animationController.animationsLoop().then();

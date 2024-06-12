@@ -12,19 +12,24 @@ class TextController {
     // this.#createTextObjects()
   }
 
-  textLoop = async () => {
-    while (this.charCount < this.text.initialText.length) {
-      this.text.setRenderedTextAndNextLetter({ counter: this.charCount });
+  textLoop = () => {
+      return new Promise((resolve) => {
+          while (this.charCount < this.text.initialText.length) {
+              this.text.setRenderedTextAndNextLetter({ counter: this.charCount });
 
-      this.charController = new CharController(this.domElement);
-      
-      await this.charController.randomLetterLoop({
-        renderedText: this.text.renderedText,
-        nextLetter:   this.text.nextLetter
-      });
+              this.charController = new CharController(this.domElement);
 
-      this.charCount++;
-    }
+              this.charController.randomLetterLoop({
+                  renderedText: this.text.renderedText,
+                  nextLetter:   this.text.nextLetter
+              }).then(() => {
+                  /* En cas de succès faire quelque chose ici */
+              });
+
+              this.charCount++;
+          }
+          resolve(this.charCount);
+      })
   }
 }
 

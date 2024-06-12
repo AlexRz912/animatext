@@ -5,7 +5,6 @@ class DomElementModel {
   constructor({tag}) {
     this.domElementBody = DOM_ELEMENT_UTILS.getDomElement(tag)
     this.elementToInsertLetterIn = null
-    this.content = null
     this.#insertToBody()
   }
 

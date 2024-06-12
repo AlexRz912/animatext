@@ -4,18 +4,26 @@ import TextController from "./text_controller.js"
 class AnimationController {
   constructor(texts = []) {
     this.domElement = new DomElement({tag: "body"})
-    this.textController = null
     this.texts = texts
+    this.#initAnimation()
+  }
+
+  /**
+  * This method initialized animation
+  * @version 0.0.1
+  */
+  #initAnimation() {
+    this.textController = null
     this.animationCount = 0
   }
 
   // Créer une fonction qui appelle textLoop en envoyant le texte
-  animationsLoop = async () => {
+  animationsLoop = () => {
     if (this.animationCount === this.texts.length) return;
 
     this.textController = new TextController(this.texts[this.animationCount], this.domElement)
-    await this.textController.textLoop()
-    await this.#waitTextToBeRead()
+    this.textController.textLoop().then();
+    this.#waitTextToBeRead().then();
     this.animationCount++
     return this.animationsLoop()
   }

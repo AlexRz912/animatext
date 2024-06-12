@@ -10,13 +10,13 @@ class CharController {
     this.animationEnd = false;
   }
 
-  randomLetterLoop = async ({renderedText, nextLetter}) => { // recursion
-    return new Promise(async (resolve) => {
+  randomLetterLoop = ({renderedText, nextLetter}) => { // recursion
+    return new Promise((resolve) => {
 
       if (this.animationEnd) return resolve(true);
 
         this.randomChar = new RandomChar();
-        this.animationEnd = await this.#intervalForRandomChar({renderedText: renderedText, nextLetter: nextLetter});
+        this.animationEnd = this.#intervalForRandomChar({renderedText: renderedText, nextLetter: nextLetter}).then();
 
         return resolve(this.randomLetterLoop({renderedText: renderedText, nextLetter: nextLetter}));
     })

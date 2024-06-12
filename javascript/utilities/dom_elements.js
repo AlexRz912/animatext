@@ -1,8 +1,5 @@
 const DOM_ELEMENTS_INTERFACE = {
-  insertDomElement: ({tag, id = null}) => !id ? `<${tag}></${tag}>` : `<${tag} id="${id}"></${tag}>`,
-
-  buildParagraph: (letter) => `<p id="letter">${letter}</p>`,
-  insertLetter: (letter, domElem) => domElem.innerText = letter,
+  insertDomElement: ({tag, id}) => !id ? `<${tag}></${tag}>` : `<${tag} id="${id}"></${tag}>`,
   getDomElement: (elem) => document.querySelector(elem)
 }
 
